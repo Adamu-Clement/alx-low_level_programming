@@ -1,26 +1,20 @@
-/*
- * File: 0-putchar.c
- * Auth: Clement Adamu 
- *
- */
 #include "holberton.h"
+
 /**
- * main - Prints "ClementAJ" followed by a new line.
+ * main - Prints Holberton as a message.
  *
- * Return: Always 0.
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	_putchar('C');
-	_putchar('l');
-	_putchar('e');
-	_putchar('m');
-	_putchar('e');
-	_putchar('n');
-	_putchar('t');
-	_putchar('A');
-	_putchar('J');
-	_putchar('\n');
+	int str[] = {72, 111, 108, 98, 101, 114, 116, 111, 110};
+	int count, sz;
 
+	sz = sizeof(str) / sizeof(int);
+	for (count = 0; count < sz; count++)
+	{
+		_putchar(str[count]);
+	}
+	_putchar('\n');
 	return (0);
 }
