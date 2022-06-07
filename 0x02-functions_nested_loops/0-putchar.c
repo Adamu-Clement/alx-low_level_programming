@@ -1,16 +1,9 @@
-/*
- * File: 0-putchar.c
- * Auth: Clement  Adamu 
- *
- */
-
 #include "main.h"
-
 /**
- * main - Prints "_putchar" followed by a new line.
- *
- * Return: Always 0.
- */
+  * main - Entry point
+  *
+  * Return: Always 0
+  */
 int main(void)
 {
 	_putchar('_');
@@ -21,8 +14,6 @@ int main(void)
 	_putchar('h');
 	_putchar('a');
 	_putchar('r');
-	_putchar('n');
 	_putchar('\n');
-
 	return (0);
 }
