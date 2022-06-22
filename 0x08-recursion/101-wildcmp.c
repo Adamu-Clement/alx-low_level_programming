@@ -1,6 +1,6 @@
 /*
  * File: 101-wildcmp.c
- * Auth: Brennan D Baraban
+ * Auth: ADAMU Clement Jatau
  */
 
 #include "main.h"
