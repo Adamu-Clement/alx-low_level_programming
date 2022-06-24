@@ -1,0 +1,2 @@
+0x09. C - Static libraries
+library is a collection of items that you can call from your program. It obviously has a lot of advantages, not least of which is that you can save much time by reusing work someone else has already done and be more confident that it has fewer bugs (since probably many other people use the libraries too, and you benefit from having them finding and fixing bugs). A library is exactly like an executable, except instead of running directly, the library functions are invoked with parameters from your executable.
