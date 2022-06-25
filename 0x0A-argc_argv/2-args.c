@@ -1,7 +1,5 @@
 #include <stdio.h>
-/**
- *Author: ADAMU Clement
- *File  : 2-arg.c 
+/** 
  * main - prints all arguments it receives.
  * @argc: number of command line arguments.
  * @argv: array that contains the program command line arguments.
