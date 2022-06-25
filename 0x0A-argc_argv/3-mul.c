@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- *Author: ADAMU Clement 
- *File  : 3-mul.c
  * main - multiplies two numbers.
  * @argc: number of command line arguments.
  * @argv: array that contains the program command line arguments.
