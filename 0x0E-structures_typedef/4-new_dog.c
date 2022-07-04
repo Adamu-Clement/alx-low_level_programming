@@ -1,83 +1,83 @@
-#include "dog.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "dog.h"
 
 /**
- * _strlen - Gets the length of the input string
- * @str: String input
- * Return: Number of indexes in a string
+ * len - find length of string
+ * @str: string
+ * Return: length
  */
-int _strlen(char *str)
+int len(char *str)
 {
 	int i;
 
-	for (i = 0; str[i]; i++)
+	for (i = 0; *(str + i); i++)
 		;
-
 	return (i);
 }
-
 /**
- * _strcpy - Copies a string from src to dest
- * @dest: String to be copied to
- * @src: String to be copied from
- *
- * Return: Pointer to start of dest
+ * strcpy - copies the string pointed to by src,
+ * including the terminating null byte (\0),
+ * to the buffer pointed to by dest
+ * @dest: copy source to this buffer
+ * @src: this is the source to copy
+ * Return: copy of original source
  */
-char *_strcpy(char *dest, char *src)
+char *strcpy(char *dest, char *src)
 {
 	int i;
 
-	for (i = 0; src[i]; i++)
+	for (i = 0; i <= len(src); i++)
 		dest[i] = src[i];
-	dest[i] = '\0';
-
 	return (dest);
 }
-
 /**
- * new_dog - Program that creates a new dog. That is, creates a new struct
- * @name: Stores the name char array
- * @age: Stores the age float
- * @owner: Stores the owner char array
- * Return: Pointer to the newly created struct
+ * new_dog - create new instance of struct dog
+ * @name: member
+ * @age: member
+ * @owner: member
+ * Return: initialized instance of struct dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *newDog = NULL;
-	char *newName, *newOwner;
-	int newNameLen, newOwnerLen;
+	dog_t *dog1;
+	char *copy_of_name;
+	char *copy_of_owner;
 
-	if (name == NULL || owner == NULL)
+	dog1 = malloc(sizeof(dog_t)); /* validate if dog1 initiated correctly */
+	if (dog1 == NULL)
 		return (NULL);
 
-	newDog = malloc(sizeof(dog_t));
+	dog1->age = age;
 
-	if (newDog == NULL)
-		return (NULL);
-
-	newNameLen = _strlen(name);
-	newName = malloc(sizeof(char *) * (newNameLen + 1));
-
-	if (newName == NULL)
+	/* make copies of struct members and validate, else free on error */
+	/* set values of struct members to copies of arguments or set to NULL */
+	if (name != NULL)
 	{
-		free(newDog);
-		return (NULL);
+		copy_of_name = malloc(len(name) + 1);
+		if (copy_of_name == NULL)
+		{
+			free(dog1);
+			return (NULL);
+		}
+		dog1->name = strcpy(copy_of_name, name);
 	}
+	else
+		dog1->name = NULL;
 
-	newOwnerLen = _strlen(owner);
-	newOwner = malloc(sizeof(char *) * (newOwnerLen + 1));
-
-	if (newOwner == NULL)
+	if (owner != NULL)
 	{
-		free(newName);
-		free(newDog);
-		return (NULL);
+		copy_of_owner = malloc(len(owner) + 1);
+		if (copy_of_owner == NULL)
+		{
+			free(copy_of_name);
+			free(dog1);
+			return (NULL);
+		}
+		dog1->owner = strcpy(copy_of_owner, owner);
 	}
+	else
+		dog1->owner = NULL;
 
-	newDog->name = _strcpy(newName, name);
-	newDog->age = age;
-	newDog->owner = _strcpy(newOwner, owner);
-
-	return (newDog);
+	return (dog1);
 }
